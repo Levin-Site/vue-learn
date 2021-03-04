@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{person.name}} -- {{person.age}}</h2>
+      <h3>{{person.fav}}</h3>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+      <h3>{{msg}}</h3>
+      <div v-text="msg"></div>
+      <div v-text="person.fav"></div>
+      <div v-html="htmlStr"></div>
+      <input type="text " v-model="msg" />
+      <button @click="handleClick">点击</button>
+    </div>
+    <script src="./MVue.js"></script>
+    <script src="./Observer.js"></script>
+    <script>
+      let vm = new MVue({
+        el: '#app',
+        data: {
+          person: {
+            name: '鸣人',
+            age: 22,
+            fav: '雏田'
+          },
+          msg: '学习MVVM响应式原理',
+          htmlStr: '<h2>大家好</h2>'
+        },
+        methods: {
+          handleClick() {
+            this.person.name = 'huahua';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
