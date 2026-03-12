@@ -11,7 +11,7 @@ const compileUtil = {
   },
   getContent(expr, vm) {
     // {{person.name}}--{{person.age}}
-    // 防止修改person.name使得所有值全部被替换
+    // 防止修改person.name使得所有值全部被替换了
     return expr.replace(/\{\{(.+?)\}\}/g, (...args) => {
       return this.getVal(args[1], vm);
     });
